@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "dashboard"
+		},
+		{
+			"path": "data"
+		},
+		{
+			"path": "docs"
+		},
+		{
+			"path": "images"
+		},
+		{
+			"path": "models"
+		},
+		{
+			"path": "notebooks"
+		},
+		{
+			"path": "reports"
+		},
+		{
+			"path": "results"
+		},
+		{
+			"path": "src"
+		},
+		{
+			"path": "tests"
+		}
+	]
+}
