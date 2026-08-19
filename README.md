@@ -1,45 +1,77 @@
 # 📈 Predictive Forecasting of Care Load & Placement Demand
 
-## U.S. Department of Health and Human Services (HHS)
+## HHS Care Occupancy Analytics
 
-An end-to-end Machine Learning project that predicts future HHS Care occupancy using historical operational data, feature engineering, and predictive modeling.
+An end-to-end Machine Learning and forecasting project that analyzes historical HHS care occupancy data, engineers temporal features, evaluates predictive models, and generates care-load forecasts to support operational planning and resource allocation.
 
 ---
 
 ## 📖 Project Overview
 
-The UAC (Unaccompanied Alien Children) Program operates in a highly uncertain environment where sudden changes in migration, border activity, policy decisions, or humanitarian crises can rapidly increase the number of children entering federal care.
+The Unaccompanied Alien Children (UAC) Program operates in a highly uncertain environment where changes in migration patterns, border activity, policy decisions, and humanitarian conditions can affect the number of children entering federal care.
 
-This project develops an end-to-end predictive forecasting pipeline that enables decision-makers to estimate future HHS Care occupancy using historical operational data and engineered temporal features.
+This project develops an end-to-end predictive analytics workflow to understand historical HHS care occupancy and estimate future care-load patterns using operational data and engineered temporal features.
 
-The solution includes:
+The project covers:
 
 - Data Understanding
 - Data Cleaning
 - Exploratory Data Analysis
 - Feature Engineering
 - Predictive Modeling
+- Model Evaluation
 - Future Forecasting
+- Interactive Dashboard Development
+- Automated Testing
 
+---
+
+# 🎯 Business Problem
+
+The UAC Program needs reliable analytical insights to understand changes in care occupancy and anticipate potential changes in future demand.
+
+Historical descriptive analytics can explain what has happened, but predictive modeling can provide additional forward-looking insights for operational planning.
+
+### Key Business Questions
+
+1. How has the number of children in HHS care changed over time?
+2. What historical and temporal patterns are associated with HHS care occupancy?
+3. Which engineered features provide the strongest predictive signals?
+4. How accurately can machine learning models predict HHS care occupancy?
+5. What does the model-based forecast indicate about future care-load patterns?
+
+### Business Objective
+
+Develop an end-to-end predictive forecasting workflow that can support:
+
+- Capacity planning
+- Resource allocation
+- Operational planning
+- Care-load monitoring
+- Data-driven decision-making
 
 ---
 
 # 🛠️ Technology Stack
 
 | Category | Technologies |
-|----------|--------------|
+|---|---|
 | Programming Language | Python |
 | Data Analysis | Pandas, NumPy |
 | Data Visualization | Matplotlib, Seaborn |
 | Machine Learning | Scikit-learn |
+| Dashboard | Streamlit |
 | Development Environment | Jupyter Notebook, VS Code |
+| Testing | Pytest |
 | Version Control | Git & GitHub |
 
 ---
 
 # 🔄 Project Workflow
 
-```
+The project follows an end-to-end predictive analytics workflow:
+
+```text
 Raw Dataset
      │
      ▼
@@ -58,19 +90,22 @@ Feature Engineering
 Model Training
      │
      ▼
+Model Evaluation
+     │
+     ▼
 Future Forecasting
      │
      ▼
-Forecast Report
+Dashboard & Reports
 ```
 
 ---
 
-## 📊 Dataset Information
+# 📊 Dataset Information
 
 The project uses historical operational data from the Unaccompanied Alien Children (UAC) Program to analyze and forecast HHS care occupancy.
 
-### Dataset Characteristics
+## Dataset Characteristics
 
 | Attribute | Description |
 |---|---|
@@ -80,7 +115,7 @@ The project uses historical operational data from the Unaccompanied Alien Childr
 | Analysis Type | Exploratory, Predictive & Forecasting Analytics |
 | Primary Use | Care Load and Placement Demand Forecasting |
 
-### Key Variables
+## Key Variables
 
 The dataset contains operational measures related to:
 
@@ -91,56 +126,55 @@ The dataset contains operational measures related to:
 - Children discharged from HHS Care
 - Date and temporal attributes
 
-The raw data was cleaned, standardized, and transformed before exploratory analysis, feature engineering, and predictive modeling.
+The raw dataset was cleaned, standardized, and transformed before exploratory analysis and predictive modeling.
 
 ---
 
-## 🎯 Business Problem
+# 🔍 Exploratory Data Analysis
 
-The UAC Program operates in a highly uncertain environment where changes in migration patterns, border activity, policy decisions, and humanitarian conditions can rapidly affect the number of children entering federal care.
+The exploratory analysis examines:
 
-Descriptive analytics can explain historical patterns, but decision-makers also require forward-looking estimates to support operational planning and resource allocation.
+- HHS care occupancy trends over time
+- Monthly care occupancy patterns
+- Distribution of HHS care occupancy
+- Relationships between operational variables
+- Correlations between care-flow variables
+- Potential outliers and unusual observations
 
-### Key Business Questions
-
-1. How has the number of children in HHS care changed over time?
-2. What historical and temporal patterns influence care occupancy?
-3. Which engineered features are most useful for predicting HHS care load?
-4. How accurately can machine learning models predict care occupancy?
-5. What could future HHS care demand look like based on historical patterns?
-
-### Business Objective
-
-Develop an end-to-end predictive forecasting workflow that can help support capacity planning, resource allocation, and operational decision-making.
-
+The analysis identified strong relationships between several operational variables and HHS care occupancy.
 
 ---
 
-## 🤖 Machine Learning Approach
+# ⚙️ Feature Engineering
 
-The project evaluates multiple machine learning models to predict HHS care occupancy.
+Temporal and historical features were created to capture short-term and long-term patterns in care occupancy.
 
-### Models Evaluated
+## Engineered Features
 
-- Linear Regression
-- Random Forest Regressor
-- Gradient Boosting Regressor
-
-### Feature Engineering
-
-Temporal and historical features were engineered to capture patterns in care occupancy, including:
-
-- Lag features
-- Rolling averages
+- Lag 1
+- Lag 7
+- Lag 14
+- Rolling 7-day average
+- Rolling 14-day average
+- Rolling 30-day average
 - Month
-- Quarter
 - Week
 - Day
 - Day of Week
 - Weekend indicator
 - Growth rate
 
-### Evaluation Metrics
+These features allow the models to incorporate recent care-load history and temporal patterns.
+
+# 🤖 Machine Learning Approach
+
+Three machine learning regression models were evaluated:
+
+1. Linear Regression
+2. Random Forest Regressor
+3. Gradient Boosting Regressor
+
+## Evaluation Metrics
 
 The models were evaluated using:
 
@@ -148,12 +182,11 @@ The models were evaluated using:
 - **RMSE** — Root Mean Squared Error
 - **R² Score** — Coefficient of Determination
 
-The selected model was then used for future HHS care occupancy forecasting.
-
+The model with the strongest overall predictive performance was selected for forecasting.
 
 ---
 
-## 📈 Model Performance
+# 📈 Model Performance
 
 Three machine learning models were evaluated using MAE, RMSE, and R² Score.
 
@@ -163,123 +196,120 @@ Three machine learning models were evaluated using MAE, RMSE, and R² Score.
 | Random Forest | 72.2137 | 144.4701 | 0.998423 |
 | Gradient Boosting | 67.3656 | 100.2113 | 0.998791 |
 
-The final model was selected based on predictive performance and suitability for future forecasting.
+## Best Model
+
+**Gradient Boosting Regressor**
+
+Gradient Boosting achieved the lowest MAE among the evaluated models and was selected as the preferred model for the project.
 
 ---
 
-## 🔮 Future Forecasting
+# ⭐ Feature Importance
 
-The trained predictive model was used to generate future HHS care occupancy estimates based on historical operational patterns and engineered temporal features.
+Feature importance analysis showed that recent HHS care occupancy history provides the strongest predictive signal.
+
+## Most Influential Features
+
+1. Children in HHS Care
+2. HHS_Lag_1
+3. Rolling7
+4. Rolling14
+5. HHS_Lag_7
+6. HHS_Lag_14
+7. Rolling30
+
+This indicates that recent care occupancy and short-term historical patterns are highly informative when predicting care load.
+
+---
+
+# 🔮 Forecasting
+
+The trained predictive model was used to generate model-based HHS care occupancy estimates based on historical operational patterns and engineered temporal features.
 
 The forecast output is stored in:
 
-`results/future_forecast.csv`
+```text
+results/future_forecast.csv
 
-### Forecast Summary
+## Forecast Output
 
-| Metric | Predicted HHS Care Occupancy |
-|---|---:|
-| Forecast Start | 2023-03-08 |
-| Forecast End | 2025-12-18 |
-| Minimum Forecast | 1,978.95 |
-| Maximum Forecast | 11,398.66 |
-| Average Forecast | 5,988.79 |
-| Median Forecast | 6,263.77 |
-| Standard Deviation | 2,871.82 |
-
-### Forecast Output
-
-The forecast dataset contains daily predicted HHS care occupancy values with the following structure:
+The forecast dataset contains daily predicted HHS care occupancy values.
 
 | Column | Description |
 |---|---|
 | `Date` | Forecast date |
 | `Predicted_HHS_Care` | Predicted number of children in HHS care |
 
-The generated forecasts can be used to understand potential changes in care occupancy and support capacity planning, resource allocation, and operational decision-making.
+The generated predictions can be used to analyze potential changes in care occupancy and support capacity planning, resource allocation, and operational decision-making.
 
 ---
 
-## 📁 Project Structure
+# 📊 Project Visualizations
 
-```text
-Predictive_Forecasting_of_Care_Load/
-│
-├── data/
-│   ├── external/
-│   ├── processed/
-│   └── raw/
-│
-├── models/
-│
-├── notebooks/
-│   ├── 01_Data_Understanding.ipynb
-│   ├── 02_Data_Cleaning.ipynb
-│   ├── 03_Exploratory_Data_Analysis.ipynb
-│   ├── 04_Feature_Engineering.ipynb
-│   ├── 05_Predictive_Modeling.ipynb
-│   └── 06_Future_Forecasting.ipynb
-│
-├── results/
-│   ├── feature_importance.csv
-│   ├── forecast_summary.csv
-│   ├── future_forecast.csv
-│   └── model_performance.csv
-│
-├── reports/
-│
-├── src/
-│
-├── tests/
-│
-├── .gitignore
-├── README.md
-└── requirements.txt
+The project contains eight major visualizations generated during the exploratory analysis, model evaluation, and forecasting stages.
 
+| # | Visualization | File |
+|---:|---|---|
+| 1 | HHS Care Occupancy Trend | `01_care_occupancy_trend.png` |
+| 2 | Monthly HHS Care Occupancy | `02_monthly_care_occupancy.png` |
+| 3 | Correlation Heatmap | `03_correlation_heatmap.png` |
+| 4 | HHS Care Occupancy Distribution | `04_care_occupancy_distribution.png` |
+| 5 | Actual vs Predicted | `05_actual_vs_predicted.png` |
+| 6 | Feature Importance | `06_feature_importance.png` |
+| 7 | Model Performance Comparison | `07_model_comparison.png` |
+| 8 | Forecasted HHS Care Occupancy | `08_future_forecast.png` |
 
 ---
 
-# ▶️ How to Run the Project
+# 📊 Interactive Dashboard
 
-### 1. Clone the repository
+A Streamlit dashboard was developed to provide an interactive view of the project's analytical and forecasting results.
 
-```bash
-git clone https://github.com/kishanDataLab/Predictive_Forecasting_of_Care_Load.git
-cd Predictive_Forecasting_of_Care_Load
-```
+The dashboard presents:
 
-### 2. Create a virtual environment
+- Key Performance Indicators
+- Model Performance
+- Historical Care Occupancy Trends
+- Monthly Care Occupancy
+- Correlation Analysis
+- Distribution Analysis
+- Actual vs Predicted Results
+- Feature Importance
+- Forecast Results
 
-```bash
-python -m venv venv
-```
+## Run the Dashboard
 
-### 3. Activate the virtual environment
-
-**Windows:**
-
-```bash
-venv\Scripts\activate
-```
-
-### 4. Install dependencies
+From the project root directory:
 
 ```bash
-pip install -r requirements.txt
-```
+streamlit run dashboard/app.py
 
-### 5. Run the notebooks
+# 🧪 Testing
 
-Open the project in Jupyter Notebook or VS Code and execute the notebooks in the following order:
+The project includes automated tests using Pytest.
 
-1. `01_Data_Understanding.ipynb`
-2. `02_Data_Cleaning.ipynb`
-3. `03_Exploratory_Data_Analysis.ipynb`
-4. `04_Feature_Engineering.ipynb`
-5. `05_Predictive_Modeling.ipynb`
-6. `06_Future_Forecasting.ipynb`
+The test suite validates:
 
-The generated outputs are stored in the `results/` directory.
+- Dataset loading
+- Feature engineering
+- Machine learning model creation
+
+## Run All Tests
+
+From the project root directory:
+
+```bash
+python -m pytest tests
+
+# 💡 Key Insights
+
+The analysis produced several important findings:
+
+- HHS care occupancy showed substantial variation throughout the analyzed period.
+- Recent care occupancy history provides strong predictive information.
+- Lag and rolling-window features are highly useful for forecasting.
+- Gradient Boosting achieved the lowest MAE among the evaluated models.
+- The project demonstrates how historical operational data can be transformed into predictive insights for care-load planning.
 
 ---
 
@@ -290,9 +320,10 @@ Potential extensions of the project include:
 - Incorporating external variables such as border activity and policy changes.
 - Evaluating additional forecasting algorithms.
 - Implementing automated model retraining.
-- Building an interactive Power BI or web-based forecasting dashboard.
+- Improving dashboard interactivity.
 - Adding prediction intervals to quantify forecast uncertainty.
 - Deploying the forecasting pipeline as a production API.
+- Integrating Power BI or other business intelligence tools.
 
 ---
 
@@ -302,10 +333,23 @@ Potential extensions of the project include:
 
 Data Science & Analytics
 
-### Skills
+## Skills
 
 Python • SQL • Power BI • Excel • Machine Learning • Data Analytics
 
 ---
 
-⭐ If you found this project useful, feel free to explore the notebooks and analysis results.
+# ⭐ Project Summary
+
+This project demonstrates an end-to-end Data Science workflow combining:
+
+- Data cleaning
+- Exploratory data analysis
+- Feature engineering
+- Machine learning
+- Model evaluation
+- Future forecasting
+- Automated testing
+- Interactive dashboard development
+
+The final solution provides a structured approach to analyzing HHS care-load patterns and generating predictive insights that can support capacity planning, resource allocation, and operational decision-making.
