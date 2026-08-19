@@ -228,8 +228,11 @@ The trained predictive model was used to generate model-based HHS care occupancy
 
 The forecast output is stored in:
 
-```text
+```
+text
 results/future_forecast.csv
+
+```
 
 ## Forecast Output
 
@@ -277,6 +280,8 @@ The dashboard presents:
 - Feature Importance
 - Forecast Results
 
+
+
 ## Run the Dashboard
 
 From the project root directory:
@@ -284,6 +289,7 @@ From the project root directory:
 ```bash
 streamlit run dashboard/app.py
 
+```
 # 🧪 Testing
 
 The project includes automated tests using Pytest.
@@ -299,8 +305,9 @@ The test suite validates:
 From the project root directory:
 
 ```bash
-python -m pytest tests
 
+python -m pytest tests
+```
 # 💡 Key Insights
 
 The analysis produced several important findings:
